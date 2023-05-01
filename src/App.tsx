@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from 'react';
+import Modal from './Modal';
+
+import ABTesting from "./assets/ab-testing.json";
+import ContactList from "./assets/contact-list.json";
+
+function randomIntFromInterval(min: number, max: number) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [showModal, setShowModal] = useState(true)
+
+  const [testDetails, setTestDetails] = useState<{
+    name: string;
+    header: string;
+  }>(ABTesting.content[0]);
+
+
+  useEffect(() => {
+    setTestDetails(ABTesting.content[randomIntFromInterval(0, 2)]);
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AnimatePresence>
+        {showModal && (
+          <Modal
+            testing={testDetails}
+            contactList={ContactList.json}
+            handleClose={() => setShowModal(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
-  )
+  );
 }
 
 export default App

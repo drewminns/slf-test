@@ -1,0 +1,25 @@
+{
+  "json": [
+    {
+      "logo": "suntech.png",
+      "name": "SunTech",
+      "phone": "855-121-3211",
+      "ratings": 5,
+      "text": "Call us for a quote."
+    },
+    {
+      "logo": "solarshield.jpg",
+      "name": "SolarShield",
+      "phone": "888-121-3211",
+      "ratings": 5,
+      "text": "We have 25 years of experince. Call us now!"
+    },
+    {
+      "logo": "homesolar.png",
+      "name": "HomeSolar LLC - where sun is shining and your electricity bill is shrinking ",
+      "phone": "855-121-3211",
+      "ratings": 5,
+      "text": "HomeSolar is a 5-star rated installer. Final savings are GUARANTEED or you get DOUBLE the difference. #1 rated. Ask our Solar Energy Specialist anything on the phone...we’re experts! We can engineer, finance, and install solar in 30 days or less."
+    }
+  ]
+}
